@@ -53,7 +53,7 @@ class UI {
                         />
                         <button class="bag-btn" data-id=${product.id}>
                             <i class="fas fa-shopping-cart"></i>
-                            add to bag
+                            add to cart
                         </button>
                     </div>
                     <h3>${product.title}</h3>
@@ -145,13 +145,19 @@ class UI {
         clearCartBtn.addEventListener('click', () => {
             this.clearCart();
         });
-        console.log(this);
         //cart functionality
+        cartContent.addEventListener('click', (event) => {
+            if (event.target.classList.contains('remove-item')) {
+                let removeItem = event.target;
+                let id = removeItem.dataset.id;
+                cartContent.removeChild(removeItem.parentElement.parentElement);
+                this.removeItem(id);
+            }
+        });
     }
     clearCart() {
         let cartItems = cart.map((item) => item.id);
         cartItems.forEach((id) => this.removeItem(id));
-        console.log(cartContent.children);
         while (cartContent.children.length > 0) {
             cartContent.removeChild(cartContent.children[0]);
         }
@@ -207,6 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(() => {
             ui.getBagButtons();
-            ui.cartLogic()
+            ui.cartLogic();
         });
 });
