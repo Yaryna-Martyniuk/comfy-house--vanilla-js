@@ -168,9 +168,12 @@ class UI {
                 if (tempItem.amount > 0) {
                     Storage.saveCart(cart);
                     this.setCartValues(cart);
-                    
+                    lowerAmount.previousElementSibling.innerText =
+                        tempItem.amount;
                 } else {
-                    cartContent.removeChild(lowerAmount.parentElement);
+                    cartContent.removeChild(
+                        lowerAmount.parentElement.parentElement
+                    );
                     this.removeItem(id);
                 }
             }
