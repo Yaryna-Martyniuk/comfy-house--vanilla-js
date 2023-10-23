@@ -42,10 +42,9 @@ class Products {
 
 
 // enable the button to lead to the section with products 
-
-shopNowButton.addEventListener("click", function() {
-        
-        productsSection.scrollIntoView({ behavior: "smooth" });
+document.addEventListener("DOMContentLoaded", function() {
+      shopNowButton.addEventListener("click", function() {
+            productsSection.scrollIntoView({ behavior: "smooth" });
     });
 });
 //display products
