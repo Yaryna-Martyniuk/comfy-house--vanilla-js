@@ -8,6 +8,9 @@ const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
 const btns = document.querySelectorAll('.bag-btn');
+const shopNowButton = document.querySelector(".banner-btn");
+var productsSection = document.getElementById("products");
+
 
 //cart
 
@@ -37,6 +40,14 @@ class Products {
     }
 }
 
+
+// enable the button to lead to the section with products 
+
+shopNowButton.addEventListener("click", function() {
+        
+        productsSection.scrollIntoView({ behavior: "smooth" });
+    });
+});
 //display products
 
 class UI {
